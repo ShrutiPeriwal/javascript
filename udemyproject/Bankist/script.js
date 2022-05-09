@@ -5,21 +5,21 @@ const account1 = {
     owner: 'Shruti Periwal', 
     movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
     interestRate: 1.2,
-    pin: 0707,
+    pin: 7070,
 };
 
 const account2 = {
     owner: 'Ankita Sharma', 
     movements: [5000, 3400, -150, -790, 3210, -1000, 8500, -30],
     interestRate: 1.5,
-    pin: 0808,
+    pin: 8080,
 };
 
 const account3 = {
     owner: 'Abhimanyu Maheshwari',
     movements: [200, -200, 340, -300, -20, 50, 400, -460],
     interestRate: 0.7,
-    pin: 0909,
+    pin: 9090,
 };
 
 const account4 = {
@@ -53,23 +53,25 @@ const inputLoginUsername = document.querySelector('.login_input--user');
 const inputLoginPin = document.querySelector('.login_input--pin');
 const inputTransferTo = document.querySelector('.login_input--to');
 const inputTransferAmount = document.querySelector('.login_input--amount');
-const inputLoanAmount = document.querySelector('.login_input--loan-amount');
-const inputCloseUsername = document.querySelector('.login_input--user');
-const inputClosePin = document.querySelector('.login_input--pin');
+const inputLoanAmount = document.querySelector('.form_input--loan-amount');
+const inputCloseUsername = document.querySelector('.form_input--user');
+const inputClosePin = document.querySelector('.form_input--pin');
 
-const displayMovements = function(movements) {
-    movements.forEach(function(mov, i) {
-        const type = mov > 0 ? 'deposit' : 'withdrawal';
-        const html = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${
-        i + 1
-      } ${type}</div>
-          <div class="movements__value">${mov}€</div>
-        </div>
-      `;
-  
-      containerMovements.insertAdjacentHTML('afterbegin', html);
-    });
-  };
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+  console.log(movements)
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+    <div class = "movements_row">
+      <div class = "movements_type movements_type--${type}"> ${ i + 1} ${type}</div>
+      <div class = "movements_value">${mov}</div>
+    </div>
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
 displayMovements(account1.movements);
