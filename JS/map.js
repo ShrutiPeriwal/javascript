@@ -59,3 +59,24 @@ for(const mov of movements) {
     }
 }
 console.log(withdrawals);
+
+//reduce method
+console.log(movements);
+
+//accmulator is like a snowball
+const balance = movements.reduce(function(acc, cur, i, arr) {
+    console.log(`Iteration ${i}: ${acc}`);
+    return acc + cur
+}, 0);
+console.log(balance);
+
+//using for of loop 
+let balance2 = 0;
+for(const mov of movements) {
+    balance2 += mov
+}
+console.log(balance2);
+
+//using arrow functions
+const balance3 = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance3);
