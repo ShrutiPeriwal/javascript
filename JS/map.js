@@ -34,3 +34,28 @@ const movementsDescriptions = movements.map((mov, i) =>
    // }
 );
 console.log(movementsDescriptions);
+
+//Filter Method
+const deposit = movements.filter(function(mov) {
+    return mov  > 0;
+})
+console.log(movements);
+console.log(deposit);
+
+//using for of loops - positive values
+const depositFor = [];
+for(const mov of movements) { 
+    if (mov > 0) {
+        depositFor.push(mov);
+    }
+}
+console.log(depositFor);
+
+//using for of loops - negative values
+const withdrawals = [];
+for(const mov of movements) {
+    if(mov < 0) {
+        withdrawals.push(mov);
+    }
+}
+console.log(withdrawals);
