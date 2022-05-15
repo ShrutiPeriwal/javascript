@@ -90,3 +90,10 @@ const createUserNames = function(accs) {
 }
 createUserNames(accounts);
 console.log(accounts)
+
+//calculating Balance
+const calcPrintBalance = function(movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} Rs`;
+};
+calcPrintBalance(account1.movements);
