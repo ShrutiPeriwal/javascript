@@ -36,3 +36,12 @@ const account1 = {
   console.log(accounts);
 const account = accounts.find(acc => acc.owner === 'Abhimanyu Maheshwari');
 console.log(account);
+
+console.log(movements);
+
+//its check only equality
+console.log(movements.includes(-130));
+
+//its check the condition
+const anyDeposits = movements.some(mov => mov > 5000);
+console.log(anyDeposits);
