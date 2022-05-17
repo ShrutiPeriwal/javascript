@@ -47,7 +47,7 @@ const btnLogin = document.querySelector(".login_btn");
 const btnTransfer = document.querySelector(".form_btn--transfer");
 const btnLoan = document.querySelector(".form_btn--loan");
 const btnClose = document.querySelector(".form_btn--close");
-const btnSort = document.querySelector(".form--sort");
+const btnSort = document.querySelector(".btn--sort");
 
 const inputLoginUsername = document.querySelector(".login_input--user");
 const inputLoginPin = document.querySelector(".login_input--pin");
@@ -57,9 +57,12 @@ const inputLoanAmount = document.querySelector(".form_input--loan-amount");
 const inputCloseUsername = document.querySelector(".form_input--user");
 const inputClosePin = document.querySelector(".form_input--pin");
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = "";
-  console.log(movements);
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  //console.log(movements);
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
@@ -197,13 +200,13 @@ btnLoan.addEventListener("click", function (e) {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    //add the movement 
+    //add the movement
     currentAccount.movements.push(amount);
 
     //update UI
     updateUI(currentAccount);
   }
-  inputLoanAmount.value = '';
+  inputLoanAmount.value = "";
 });
 //Close Account
 btnClose.addEventListener("click", function (e) {
@@ -227,3 +230,10 @@ btnClose.addEventListener("click", function (e) {
   }
   inputCloseUsername.value = inputClosePin.value = "";
 });
+
+let sorted = false;
+btnSort.addEventListener("click", function(e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+})
