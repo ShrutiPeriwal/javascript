@@ -6,7 +6,7 @@ console.log(now);
 //console.log(new Date('Aug 02 2020 18:05:41'));
 
 console.log(new Date(2022, 10, 19, 15, 23, 5));
-console.log(new Date(2022, 10, 31)); 
+console.log(new Date(2022, 10, 31));
 
 console.log(new Date(0));
 console.log(new Date(3 * 24 * 60 * 60 * 1000));
@@ -27,4 +27,15 @@ console.log(future.getTime());
 console.log(Date.now());
 
 future.setFullYear(2040);
-console.log(future)
+console.log(future);
+
+console.log("----------setTimeout() --------");
+const ingredients = ["", "olive"];
+const pizzaTime = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}`),
+  3000,...ingredients
+);
+console.log('Waiting..');
+if(ingredients.includes('spinach')) {
+    clearTimeout(pizzaTime);
+}
