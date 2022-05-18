@@ -137,6 +137,20 @@ const calcPrintBalance = function (acc) {
 
 //Event Handlers -
 let currentAccount;
+
+currentAccount = account1; 
+updateUI(currentAccount);
+containerApp.style.opacity = 100;
+
+const now = new Date();
+const day = `${now.getDate()}`.padStart(2, 0);
+const month = `${now.getMonth() + 1}`.padStart(2, 0);
+const year = now.getFullYear();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+labelDate.textContent = `${day}/${month}/${year},${hours}/${minutes}`;
+
+
 btnLogin.addEventListener("click", function (e) {
   //Prevent form from submitting
   e.preventDefault();
@@ -200,11 +214,14 @@ btnLoan.addEventListener("click", function (e) {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    //add the movement
+    setTimeout(function () {
+      //add the movement
     currentAccount.movements.push(amount);
 
     //update UI
     updateUI(currentAccount);
+  
+    }, 2500);
   }
   inputLoanAmount.value = "";
 });
@@ -215,7 +232,7 @@ btnClose.addEventListener("click", function (e) {
 
   if (
     inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
       (acc) => acc.username === currentAccount.username
@@ -232,8 +249,8 @@ btnClose.addEventListener("click", function (e) {
 });
 
 let sorted = false;
-btnSort.addEventListener("click", function(e) {
+btnSort.addEventListener("click", function (e) {
   e.preventDefault();
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
-})
+});
