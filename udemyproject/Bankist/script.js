@@ -135,6 +135,15 @@ const calcPrintBalance = function (acc) {
 };
 //calcPrintBalance(account1.movements);
 
+const startLogoutTimer  = function() {
+  let time = 100;
+
+  setInterval(function() {
+    labelTimer.textContent = time;
+    time--;
+  }, 1000);
+};
+
 //Event Handlers -
 let currentAccount;
 
@@ -171,6 +180,7 @@ btnLogin.addEventListener("click", function (e) {
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
 
+    startLogoutTimer();
     //update UI
     updateUI(currentAccount);
   }
