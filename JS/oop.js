@@ -46,3 +46,33 @@ Array.prototype.unique = function() {
     return [...new Set(this)];
 };
 console.log(arr.unique());
+
+//ES6 CLASSES
+console.log('----------ES6 CLASSES----------');
+//class declarations
+class PersonCl {
+    constructor(firstName, birthYear) {
+        this.firstName = firstName;
+        this.birthYear = birthYear;
+    }
+    //Methods will be added to .prototype property
+    calcAge() {
+        console.log(2022 - this.birthYear);
+    }
+    greet() {
+        console.log(`Hey ${this.firstName}`);
+    }
+}
+
+const ShrutiPeriwal = new PersonCl('ShrutiPeriwal', 2001);
+console.log(ShrutiPeriwal);
+ShrutiPeriwal.calcAge();
+
+//PersonCl.prototype.greet = function() {
+//    console.log(`Hey ${this.firstName}`);
+//}
+ShrutiPeriwal.greet();
+
+//1.classes are not hoisted
+//2. Classes are also first-class citizens
+//3. Classes are exectuted in strict mode
