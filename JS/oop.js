@@ -36,3 +36,13 @@ console.log(shruti.species);
 
 console.log(shruti.hasOwnProperty('species'));
 console.log(shruti.hasOwnProperty('firstName'));
+
+console.log('--------------------------------')
+const arr = [3, 5, 7, 8, 9, 10, 11];
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+
+Array.prototype.unique = function() {
+    return [...new Set(this)];
+};
+console.log(arr.unique());
