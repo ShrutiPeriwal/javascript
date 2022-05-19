@@ -38,33 +38,80 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 
 DATA CAR 1: 'Ford' going to 120 km/hours
 */
-class CarCl {
-    constructor(make, speed) {
+//class CarCl {
+//    constructor(make, speed) {
+//    this.make = make;
+//    this.speed = speed;
+//}
+//accelerate() {
+//    this.speed += 10;
+//    console.log(`${this.make} is going at ${this.speed} km/h`);
+//}
+//barke() {
+//   this.speed -= 5;
+//    console.log(`${this.make} is going at ${this.speed} km/h`);
+//}
+
+//get speedUS() {
+//    return this.speed / 1.6;
+//}
+
+//set speedUS(speed) {
+//    this.speed = speed * 1.6;
+//}
+//}
+
+//const ford = new CarCl('ford', 120);
+//console.log(ford.speedUS);
+//ford.accelerate();
+//ford.accelerate();
+//ford.barke();
+//ford.speedUS = 50;
+//console.log(ford);
+
+//Coding Challenge : 3
+/*
+1. Use a constructor function to implement an Electric Car (called EV) as a CHILD "class" of Car. Besides a make and current speed , the EV also has the current battery
+charge in % ('charge' property) 
+2. Implement a 'chargeBattery' method which takes an argument 'chargeTo' ands sets the battery charge to 'chargeTo' 
+3. Implement an 'accelerate' method that will increase the car's speed by 20 , and decrease the charge by 1%. Then log a message like this: 
+'tesla going at 140 km/hr , with a charge of 22%.
+4. Create an electric car object and experiment with calling 'acclerate' , 'brake' and 'chargeBattery'(charge to 90%). Notice what happens when you 'accelerate'!
+HINT : Review the definition of polymorphism
+*/
+
+const Car = function(make, speed) {
     this.make = make;
     this.speed = speed;
-}
-accelerate() {
+};
+Car.prototype.accelerate = function () {
     this.speed += 10;
     console.log(`${this.make} is going at ${this.speed} km/h`);
-}
-barke() {
+};
+Car.prototype.barke = function() {
     this.speed -= 5;
     console.log(`${this.make} is going at ${this.speed} km/h`);
-}
+};
 
-get speedUS() {
-    return this.speed / 1.6;
-}
+const EV = function(makes, speed, charge) {
+    Car.call(this, makes, speed);
+    this.charge = charge;
+};
 
-set speedUS(speed) {
-    this.speed = speed * 1.6;
-}
-}
+//Link the prototype  
+EV.prototype = Object.create(Car.prototype);
 
-const ford = new CarCl('ford', 120);
-console.log(ford.speedUS);
-ford.accelerate();
-ford.accelerate();
-ford.barke();
-ford.speedUS = 50;
-console.log(ford);
+EV.prototype.chargeBattery = function(chargeTo) {
+    this.charge = chargeTo;
+};
+
+EV.prototype.accelerate = function() {
+    this.speed += 20;
+    this.charge--;
+    console.log(`${this.make} is going at ${this.speed} km/hr, with a charge of ${this.charge}`);
+}
+const tesla = new EV('Tesla', 120, 23);
+tesla.chargeBattery(90);
+console.log(tesla);
+tesla.barke();
+tesla.accelerate();
