@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /*
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
@@ -32,6 +32,7 @@ getCountryData('usa');
 
 */
 
+/*
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
@@ -86,3 +87,17 @@ const getCountryAndNeighour = function (country) {
 }); 
 };
 getCountryAndNeighour('usa');
+*/
+
+//Promises
+//const request = fetch("https://restcountries.com/v2/name/portugal");
+//console.log(request);
+
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v2/name/${country}`).then(function (
+    response
+  ) {
+    console.log(response);
+  });
+};
+getCountryData('portugal')
