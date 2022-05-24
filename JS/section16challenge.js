@@ -26,7 +26,7 @@ const renderError = function (msg) {
   countriesContainer.insertAdjacentText("beforeend", msg);
   countriesContainer.style.opacity = 1;
 };
-/*
+
 const getJSON = function (url, errorMsg = "Something Went Wrong") {
     return fetch(url).then((response) => {
       console.log(response);
@@ -36,7 +36,7 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
     });
   };
 
-*/
+
 /*
   const whereAmI = function (lat, lng) {
     fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
@@ -101,7 +101,7 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
   Promise.resolve('.abc').then(x => console.log(x));
   Promise.reject(new Error('Problem!!')).catch(x => console.error(x));
   */
- 
+ /*
   const getPosition = function() {
     return new Promise(function (resolve, reject) {
       navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -145,3 +145,17 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
     }
     console.log('3. Finished getting location');
   }) ();
+  */
+
+  const get3Countries = async function(c1, c2, c3) {
+    try {
+      const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+      const [data2] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+      const [data3] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+
+      console.log([data1.capital, data2.capital, data3.capital]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  get3Countries('portugal', 'canada', 'tanzania');
