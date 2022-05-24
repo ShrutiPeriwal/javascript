@@ -129,7 +129,7 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
    renderCountry(data[0]); 
     } catch (err) {
       console.log(`${err}`);
-      renderError(`Something went country ${err.message}`);
+      renderError(` ${err.message}`);
     }
   };
   whereAmI();
