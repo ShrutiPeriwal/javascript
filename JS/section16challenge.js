@@ -146,7 +146,7 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
     console.log('3. Finished getting location');
   }) ();
   */
-
+/*
   const get3Countries = async function(c1, c2, c3) {
     try {
       //const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
@@ -166,3 +166,28 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
     }
   };
   get3Countries('portugal', 'canada', 'tanzania');
+  */
+
+  //Promise.race
+  (async function(){
+    const res = await Promise.race([
+      getJSON(`https://restcountries.com/v2/name/italy`),
+      getJSON(`https://restcountries.com/v2/name/egypt`),
+      getJSON(`https://restcountries.com/v2/name/mexico`),
+    ]);
+    console.log(res[0]);
+  }) ();
+
+  const timeout = function(sec) {
+    return new Promise(function(_, reject) {
+      setTimeout(function() {
+        reject(new Error('Request took too long'));
+      }, sec);
+    });
+  };
+
+  Promise.race([
+    getJSON(`https://restcountries.com/v2/name/tanzania`),
+    timeout(1)
+  ]).then(res => console.log(res[0]))
+  .catch(err => console.error(err));
