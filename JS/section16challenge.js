@@ -191,3 +191,25 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
     timeout(1)
   ]).then(res => console.log(res[0]))
   .catch(err => console.error(err));
+
+  //Promise.allSettled
+  Promise.allSettled([
+    Promise.resolve('Success'), 
+    Promise.resolve('ERROR'),
+    Promise.resolve('Another success'),
+  ]).then(res => console.log(res));
+
+  Promise.all([
+    Promise.resolve('Success'), 
+    Promise.resolve('ERROR'),
+    Promise.resolve('Another success'),
+  ]).then(res => console.log(res))
+  .catch(err => console.error(err));
+
+  //promise.any
+  Promise.any([
+    Promise.resolve('Success'), 
+    Promise.resolve('ERROR'),
+    Promise.resolve('Another success'),
+  ]).then(res => console.log(res))
+  .catch(err => console.error(err));
