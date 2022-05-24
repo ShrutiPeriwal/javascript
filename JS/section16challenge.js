@@ -2,7 +2,7 @@
 
 const btn = document.querySelector(".btn-country");
 const countriesContainer = document.querySelector(".countries");
-/*
+
 const renderCountry = function (data, className = "") {
   const html = `
   <article class="country ${className}">
@@ -26,7 +26,7 @@ const renderError = function (msg) {
   countriesContainer.insertAdjacentText("beforeend", msg);
   countriesContainer.style.opacity = 1;
 };
-
+/*
 const getJSON = function (url, errorMsg = "Something Went Wrong") {
     return fetch(url).then((response) => {
       console.log(response);
@@ -37,6 +37,7 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
   };
 
 */
+/*
   const whereAmI = function (lat, lng) {
     fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
       .then(res => {
@@ -58,7 +59,8 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
   //whereAmI(52.508, 13.381);
   //whereAmI(19.037, 72.873);
   //whereAmI(-33.933, 18.474);
-
+*/
+  /*
   //Promises
   const lotteryPromise = new Promise(function(resolve, reject) {
     console.log('Lottery draw is happening');
@@ -98,3 +100,30 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
 
   Promise.resolve('.abc').then(x => console.log(x));
   Promise.reject(new Error('Problem!!')).catch(x => console.error(x));
+  */
+ 
+  const getPosition = function() {
+    return new Promise(function (resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+  };
+
+  //consuming promises with Async / Await
+  const whereAmI = async function(country) {
+    //GEolocation   
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lon } = pos.coords;
+
+    //Reverse geocoding
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lon}?geoit=json`);
+    const dataGeo = await resGeo.json();
+    console.log(dataGeo);
+   // fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res));
+   
+   const res = await fetch(`https://restcountries.com/v2/name/${dataGeo.country}`);
+   const data = await res.json();
+   console.log(data);
+   renderCountry(data[0]);
+  }
+  whereAmI();
+  console.log('FIRST');
