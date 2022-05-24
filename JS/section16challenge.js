@@ -119,18 +119,29 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
     const resGeo = await fetch(`https://geocode.xyz/${lat},${lon}?geoit=json`);
     if(!resGeo.ok) throw new Error('Problem getting location data');
     const dataGeo = await resGeo.json();
-    console.log(dataGeo);
    // fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res));
    
    const res = await fetch(`https://restcountries.com/v2/name/${dataGeo.country}`);
    if(!res.ok) throw new Error('Problem getting Country');
    const data = await res.json();
-   console.log(data);
    renderCountry(data[0]); 
+   return `You are in ${dataGeo.city}, ${dataGeo.country};`
     } catch (err) {
       console.log(`${err}`);
       renderError(` ${err.message}`);
+      //Reject promise returned from async function
+      throw err;
     }
   };
-  whereAmI();
-  console.log('FIRST');
+  //whereAmI();
+  console.log('will get location first');
+
+  (async function() {
+    try {
+      const city = await whereAmI();
+      console.log(`2. ${city}`);
+    } catch (err) {
+      console.error(`2: ${err.message}`);
+    }
+    console.log('3. Finished getting location');
+  }) ();
