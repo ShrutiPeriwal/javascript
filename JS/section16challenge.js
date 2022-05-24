@@ -110,20 +110,27 @@ const getJSON = function (url, errorMsg = "Something Went Wrong") {
 
   //consuming promises with Async / Await
   const whereAmI = async function(country) {
+    try {
     //GEolocation   
     const pos = await getPosition();
     const { latitude: lat, longitude: lon } = pos.coords;
 
     //Reverse geocoding
     const resGeo = await fetch(`https://geocode.xyz/${lat},${lon}?geoit=json`);
+    if(!resGeo.ok) throw new Error('Problem getting location data');
     const dataGeo = await resGeo.json();
     console.log(dataGeo);
    // fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res));
    
    const res = await fetch(`https://restcountries.com/v2/name/${dataGeo.country}`);
+   if(!res.ok) throw new Error('Problem getting Country');
    const data = await res.json();
    console.log(data);
-   renderCountry(data[0]);
-  }
+   renderCountry(data[0]); 
+    } catch (err) {
+      console.log(`${err}`);
+      renderError(`Something went country ${err.message}`);
+    }
+  };
   whereAmI();
   console.log('FIRST');
