@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <link rel="stylesheet" href="HtmlTagsCss.css">
+  <title>HTML TAGS</title>
+</head>
+<body>
+  <!-- Problem 1:
+Build three tables with information as shown in below screenshot using only HTML tags
+ -->
+
+ <!-- First Table -- Employee Information -->
+ <h1>PROBlEM 1</h1>
+ <h2>Employee Information</h2>
+ <table border="1" cellpading="3">
+   <!-- Table Head -->
+   <thead>
+     <th>Employee</th>
+     <th>Posotion</th>
+     <th>Country</th>
+    </thead>
+    <!-- Table Row -- & Its Data -->
+    <tr>
+     <td>Alfreds Sampson</td>
+     <td>Architect</td>
+     <td>Mexico</td>
+   </tr>
+   <tr>
+     <td>Joe Handle</td>
+     <td>Designer</td>
+     <td>Turkey</td>
+   </tr>
+   <tr>
+    <td>Ernst Young</td>
+    <td>Developer</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Helen Bernet</td>
+    <td>Techer</td>
+    <td>Uk</td>
+  </tr>
+  <tr>
+    <td>Yoshi Hamda</td>
+    <td>Manager</td>
+    <td>Japan</td>
+  </tr>
+  <tr>
+    <td>Giovennie Roveli</td>
+    <td>Chef</td>
+    <td>Italy</td>
+  </tr>
+ </table>
+ <hr>
+
+ <!-- Table 2 -- Student Scores -->
+ <h2>Student Scores</h2>
+ <table border="1" cellpadding="3">
+   <tr>
+     <th>Student</th>
+     <th>Subject Scores</th>
+     <th>Marks</th>
+   </tr>
+   <tr>
+     <td rowspan="3">Raj</td>
+     <td>Algebra</td>
+     <td>12</td>
+   </tr>
+   <tr>
+     <td>Geometry</td>
+     <td>14</td>
+   </tr>
+   <tr>
+    <td>Physics</td>
+    <td>14</td>
+  </tr>
+  <tfoot>
+    <td colspan="2">Total Of All Subjects</td>
+    <td>40</td>
+  </tfoot>
+ </table>
+ <hr>
+
+ <!-- Table 3 -- HOBBIES -->
+ <h2>Hobbies</h2>
+ <table border="2" width="400px" height="133px">
+   <tr>
+     <td align="center">Indoor</td>
+     <td align="center">Chess</td>
+   </tr>
+   <tr>
+     <td align="center">Outdoor</td>
+     <td align="center">Circket</td>
+   </tr>
+ </table>
+
+ <!--Problem 2:
+Build a various elements shown below using tables and other HTML tags without using CSS
+-->
+ <h1>PROBLEM 2</h1>
+ <!-- Table 1 -- Order List -->
+ <h2>Ordered List</h2>
+ <table border="1" cellpading="3">
+   <tr>
+     <th>Ordered List- Type 1</th>
+     <th>Ordered List- Type 2</th>
+     <th>Ordered List- Type 3</th>
+     <th>Ordered List- Type 4</th>
+     <th>Ordered List- Type 5</th>
+     <th>Ordered List- Differnt Start</th>
+   </tr>
+   <tr>
+     <!-- Type="1" -->
+     <td>
+       <ol type="1">
+         <li>Apple</li>
+         <li>Mangoes</li>
+         <li>Oranges</li>
+         <li>Pears</li>
+       </ol>
+     </td>
+     <!-- Type="I" -->
+     <td>
+      <ol type="I">
+        <li>Apple</li>
+        <li>Mangoes</li>
+        <li>Oranges</li>
+        <li>Pears</li>
+      </ol>
+    </td>
+    <!-- Type="i" -->
+    <td>
+      <ol type="i">
+        <li>Apple</li>
+        <li>Mangoes</li>
+        <li>Oranges</li>
+        <li>Pears</li>
+      </ol>
+    </td>
+    <!-- Type="A" -->
+    <td>
+      <ol type="A">
+        <li>Apple</li>
+        <li>Mangoes</li>
+        <li>Oranges</li>
+        <li>Pears</li>
+      </ol>
+    </td>
+    <!-- Type="a" -->
+    <td>
+      <ol type="a">
+        <li>Apple</li>
+        <li>Mangoes</li>
+        <li>Oranges</li>
+        <li>Pears</li>
+      </ol>
+    </td>
+    <!-- Type="difent start" -->
+    <td>
+      <ol type="i" start="4">
+        <li>Apple</li>
+        <li>Mansgoes</li>
+        <li>Oranges</li>
+        <li>Pears</li>
+      </ol>
+    </td>
+   </tr>
+ </table>
+
+ <!-- Description List -->
+ <h2>Description List</h2>
+ <ol>HTML
+     <ul style="list-style-type: none;">
+       <li>- This Stand For Hyper Text Markup Language</li>
+     </ul>
+ </ol>
+ <ol>CSS
+  <ul style="list-style-type: none;">
+    <li>- This Stand For Hyper Text Markup Language</li>
+  </ul>
+</ol>
+
+<!-- Unordered List -->
+<h2>Unordered List</h2>
+<table border="2" cellpadding="3">
+  <tr>
+    <th>Unordered List - Type 1</th>
+    <th>Unordered List - Type 2</th>
+    <th>Unordered List - Type 3</th>
+  </tr>
+  <tr>
+    <td>
+      <ul style="list-style-type:disc;">
+        <li>Spinach</li>
+        <li>Tomato</li>
+        <li>Potato</li>
+        <li>Ginger</li>
+      </ul>
+    </td>
+    <td>
+      <ul style="list-style-type:square;">
+        <li>Spinach</li>
+        <li>Tomato</li>
+        <li>Potato</li>
+        <li>Ginger</li>
+      </ul>
+    </td>
+    <td>
+      <ul style="list-style-type:circle;">
+        <li >Spinach</li>
+        <li>Tomato</li>
+        <li>Potato</li>
+        <li>Ginger</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<!-- Media Elements -->
+<h2>Media Elements</h2>
+<table border="2" cellpadding="2">
+  <tr>
+    <th style="text-align: ;">Images</th>
+    <th>Progress Bar</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://picsum.photos/200/100" alt="natureImage">
+    </td>
+    <td>
+      <progress value="32" max="100"></progress>
+    </td>
+  </tr>
+</table>
+
+<!-- Problem 3:
+Build a product listing page as shown in below screenshot -->
+<h1>PROBLEM 3</h1><br><br>
+<!-- Product Page - SECTION -->
+<h1 class="pg-title">Product Page</h1>
+<section class="prd-pg">
+  <!-- Product Image DIV -->
+  <div class="pg-img">
+    <img class="prd-img" src="https://cdn.pixabay.com/photo/2016/11/23/06/57/isolated-t-shirt-1852114_960_720.png" alt="T-Shirt">
+  </div>
+  <!-- Product Info DIV -->
+  <div class="prd-info">
+    <h1 class="prd-nm">Green Cotten Shirt</h1>
+    <h3 class="prd-cat">Shirts</h3>
+    <div class="prd-star"><i class="fa-solid fa-star"></i>&nbsp;<i class="fa-solid fa-star"></i>&nbsp;<i class="fa-solid fa-star"></i>&nbsp;<i class="fa-solid fa-star"></i>&nbsp;<i class="fa-solid fa-star-half-stroke"></i></div>
+    <h2 class="prd-price">Rs.400&nbsp;&nbsp;<del><small>Rs.000</small></del>&nbsp;&nbsp;<span style="color: green;">50% Off</span></h2>
+    <h4 class="prd-desc" style="text-justify: ;">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos iure recusandae possimus rerum sed voluptates eos nihil ipsa. Exercitationem omnis ad, excepturi esse illo, officia quidem saepe dolorem nihil facilis, quia obcaecati nemo explicabo. Ut ab rem eius, corporis voluptates nostrum architecto harum laboriosam quo dolor nihil nulla dolorem nemo. Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.
+    </h4>
+    <!-- Product Option -Color ! Size ! Quantity -->
+    <div class="prd-option">
+      <!-- Color -->
+      <div class="opt-color opt-divs">
+        <h3>Color<br>Availability</h3>
+        <h4>Green <br>3 in stock</h4>
+      </div>
+    <!-- Size -->
+    <div class="opt-size opt-divs">
+      <h3>Select Size:</h3>
+      <div class="size-radio">
+        <input type="radio" name="size" id="small">
+        <label for="small">Small</label>
+        <input type="radio" name="size" id="medium">
+        <label for="medium">Medium</label>
+        <input type="radio" name="size" id="large">
+        <label for="large">Large</label>
+      </div>
+    </div>
+    <!-- Quantity -->
+    <div class="opt-qun opt-divs">
+      <h3>Quantity:</h3>
+      <div class="qun-opt">
+        <select name="quantiy" id="quantity">
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </div>
+    </div>
+    <!-- Buy & Add To Cart -->
+    <div class="prd-buy-cart opt-divs">
+      <button class="prd-buy">Buy Now</button>
+      <button class="prd-cart">Add To Cart</button>
+    </div>
+  </div>
+  </div>
+</section>
+<script src="https://kit.fontawesome.com/0b154fd917.js" crossorigin="anonymous"></script>
+</body>
+</html>
+<form action="">
+  <input type="text required">
+</form>
