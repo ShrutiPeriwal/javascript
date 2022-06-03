@@ -1,0 +1,82 @@
+
+/* PRODUCT PAGE -- CSS -- SECTION */
+.pg-title {
+  text-align: center;
+  /* word */
+};
+.prd-pg {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  border: 1px solid black;
+  padding: 0.2rem;
+}
+.prd-nm {
+  font-size: 1.8rem;
+}
+.prd-cat {
+  font-weight: normal;
+  font-size: 1.4rem;
+}
+.prd-star {
+  font-size: 1.4rem;
+}
+.prd-price {
+  font-size: 1.6rem;
+}
+.prd-price small  {
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+.pg-img {
+  margin-right: 2rem;
+}
+.prd-img  {
+  border: 1px solid lightgrey;
+}
+.prd-info {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.prd-desc {
+  font-size: 1.2rem;
+}
+/* Otption */
+.opt-divs {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.opt-divs h3 {
+  margin-right: 5rem;
+}
+.opt-color h4 , .size-radio, #quantity{
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+#quantity {
+  margin-left: 1rem;
+}
+.prd-buy-cart button {
+  margin-right: 2rem;
+}
+.size-radio,.qun-opt {
+  justify-self: flex-start;
+}
+.prd-buy-cart {
+  margin-top: 1.5rem;
+}
+.prd-buy, .prd-cart {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border: 1px solid lightgray;
+  border-radius: 0.3rem;
+}
+.prd-buy {
+  background-color: dodgerblue;
+  color: white;
+}
+
+
