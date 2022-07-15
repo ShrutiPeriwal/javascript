@@ -1,0 +1,32 @@
+body {
+    background-color: antiquewhite;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 170px;
+}
+
+#container {
+    background-color: whitesmoke;
+    border: 5px solid whitesmoke;
+    height: 275px;
+    width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+#btn {
+    margin: 50px auto;
+    height: 50px;
+    width: 270px;
+    font-size: 22px;
+    background-color: rgb(192, 191, 191);
+    border-radius: 1rem;
+}
+
+#box {
+    margin: 25px auto;
+    font-size: 26px;
+    color: black;
+}
